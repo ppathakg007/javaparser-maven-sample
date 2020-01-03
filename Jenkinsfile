@@ -4,19 +4,19 @@ pipeline {
 	}
    agent any
 
- ??  tools {
+ //  tools {
       // Install the Maven version configured as "M3" and add it to the path.
-   ??   maven "M3"
+   //   maven "M3"
    //}
 
    stages {
       stage('Build') {
          steps {
             // Get some code from a GitHub repository
-            git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+            git 'git@github.com:ppathakg007/javaparser-maven-sample.git'
 
             // Run Maven on a Unix agent.
-            sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            sh " $M2_HOME/bin/mvn -Dmaven.test.failure.ignore=true clean package"
 
             // To run Maven on a Windows agent, use
             // bat "mvn -Dmaven.test.failure.ignore=true clean package"
