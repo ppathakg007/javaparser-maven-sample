@@ -4,14 +4,14 @@ pipeline{
 		MAVEN_HOME="/opt/apache-maven"
 	}
 			stages {
-				stage ("code Checkout")
-						{
-						steps {
-						sh env.WORKSPACE = pwd()
-           					sh "rm ${env.WORKSPACE}/* -fr"
-						sh 'git clone https://github.com/ppathakg007/javaparser-maven-sample.git'
-						}
-						}
+				//stage ("code Checkout")
+				//		{
+				//		steps {
+				//		sh env.WORKSPACE = pwd()
+           			//		sh "rm ${env.WORKSPACE}/* -fr"
+				//		sh 'git clone https://github.com/ppathakg007/javaparser-maven-sample.git'
+				//		}
+				//		}
 					
 				stage ("build")
 						{
