@@ -4,7 +4,7 @@ pipeline{
 				stage ("code Checkout")
 						{
 						steps {
-						env.WORKSPACE = pwd()
+						sh env.WORKSPACE = pwd()
            					sh "rm ${env.WORKSPACE}/* -fr"
 						sh 'git clone https://github.com/ppathakg007/javaparser-maven-sample.git'
 						}
