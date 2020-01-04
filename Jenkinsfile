@@ -11,7 +11,7 @@ pipeline{
 				stage ("build")
 						{
 							steps{
-							echo "test pipeline"
+							sh 'mvn compile'
 							}
 						}
 				stage (" build Done")
