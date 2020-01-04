@@ -8,6 +8,7 @@ pipeline{
 				stage ("Compile")
 						{
 							steps{
+								input message: 'Please input to proceed', ok: 'GO Ahead'
 								sh '${MAVEN_HOME}/bin/mvn -X clean'
 								sh '${MAVEN_HOME}/bin/mvn -X compile'
 							}
