@@ -22,7 +22,7 @@ pipeline{
 				stage (" build Done")
 					{
 						steps{
-							sh '${MAVEN_HOME}/bin/ mvn compile'
+							sh '${MAVEN_HOME}/bin/mvn compile'
 						}	
 					}
 					}
