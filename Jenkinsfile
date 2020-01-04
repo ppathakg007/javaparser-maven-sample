@@ -18,7 +18,7 @@ pipeline{
 							sh '${MAVEN_HOME}/bin/mvn test'
 						}	
 					}
-					}
+					
 				stage (" Package")
 					{
 						steps{
@@ -26,5 +26,6 @@ pipeline{
 						}	
 					}
 					}
+}
 			
 		
