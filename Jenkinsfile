@@ -11,13 +11,13 @@ pipeline{
 				stage ("build")
 						{
 							steps{
-							sh 'mvn compile'
+							sh 'mvn clean'
 							}
 						}
 				stage (" build Done")
 					{
 						steps{
-							echo "CICD DONE"
+							sh ' mvn compile'
 						}	
 					}
 					}
