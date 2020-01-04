@@ -15,20 +15,20 @@ pipeline{
 				stage (" Test")
 					{
 						steps{
-							sh '${MAVEN_HOME}/bin/mvn test'
+							sh '${MAVEN_HOME}/bin/mvn -X test'
 						}	
 					}
 					
 				stage (" Package")
 					{
 						steps{
-							sh '${MAVEN_HOME}/bin/mvn package'
+							sh '${MAVEN_HOME}/bin/mvn -X package'
 						}	
 					}
 				stage (" verify")
 					{
 						steps{
-							sh '${MAVEN_HOME}/bin/mvn verify'
+							sh '${MAVEN_HOME}/bin/mvn -X verify'
 						}	
 					}
 				stage (" install")
@@ -40,7 +40,7 @@ pipeline{
 				stage (" deploy")
 					{
 						steps{
-							sh '${MAVEN_HOME}/bin/mvn deploy'
+							sh '${MAVEN_HOME}/bin/mvn -X deploy'
 						}	
 					}
 					}
