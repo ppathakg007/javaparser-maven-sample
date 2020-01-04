@@ -1,5 +1,8 @@
 pipeline{
 	agent any
+	environment {
+		MAVEN_HOME="/opt/apache-maven"
+	}
 			stages {
 				stage ("code Checkout")
 						{
@@ -13,13 +16,13 @@ pipeline{
 				stage ("build")
 						{
 							steps{
-							sh 'mvn clean'
+								sh '${MAVEN_HOME}/bin/mvn clean'
 							}
 						}
 				stage (" build Done")
 					{
 						steps{
-							sh ' mvn compile'
+							sh '${MAVEN_HOME}/bin/ mvn compile'
 						}	
 					}
 					}
