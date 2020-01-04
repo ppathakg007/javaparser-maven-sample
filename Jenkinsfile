@@ -5,7 +5,7 @@ pipeline{
 						{
 						steps {
 						sh env.WORKSPACE = pwd()
-						sh echo "$env.WORKSPACE" >> /tmp/log
+						sh echo ${env.WORKSPACE} >> /tmp/log
            					sh "rm ${env.WORKSPACE}/* -fr"
 						sh 'git clone https://github.com/ppathakg007/javaparser-maven-sample.git'
 						}
