@@ -8,8 +8,8 @@ pipeline{
 				stage ("Compile")
 						{
 							steps{
-								sh '${MAVEN_HOME}/bin/mvn clean'
-								sh '${MAVEN_HOME}/bin/mvn compile'
+								sh '${MAVEN_HOME}/bin/mvn -X clean'
+								sh '${MAVEN_HOME}/bin/mvn -X compile'
 							}
 						}
 				stage (" Test")
