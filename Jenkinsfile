@@ -34,7 +34,7 @@ pipeline{
 				stage (" install")
 					{
 						steps{
-							sh '${MAVEN_HOME}/bin/mvn install'
+							sh '${MAVEN_HOME}/bin/mvn -X install'
 						}	
 					}
 				stage (" deploy")
