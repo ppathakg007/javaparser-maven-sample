@@ -25,6 +25,24 @@ pipeline{
 							sh '${MAVEN_HOME}/bin/mvn package'
 						}	
 					}
+				stage (" verify")
+					{
+						steps{
+							sh '${MAVEN_HOME}/bin/mvn verify'
+						}	
+					}
+				stage (" install")
+					{
+						steps{
+							sh '${MAVEN_HOME}/bin/mvn install'
+						}	
+					}
+				stage (" deploy")
+					{
+						steps{
+							sh '${MAVEN_HOME}/bin/mvn deploy'
+						}	
+					}
 					}
 }
 			
