@@ -4,25 +4,25 @@ pipeline{
 		MAVEN_HOME="/opt/apache-maven"
 	}
 			stages {
-				//stage ("code Checkout")
-				//		{
-				//		steps {
-				//		sh env.WORKSPACE = pwd()
-           			//		sh "rm ${env.WORKSPACE}/* -fr"
-				//		sh 'git clone https://github.com/ppathakg007/javaparser-maven-sample.git'
-				//		}
-				//		}
-					
-				stage ("build")
+								
+				stage ("Compile")
 						{
 							steps{
 								sh '${MAVEN_HOME}/bin/mvn clean'
+								sh '${MAVEN_HOME}/bin/mvn compile'
 							}
 						}
-				stage (" build Done")
+				stage (" Test")
 					{
 						steps{
-							sh '${MAVEN_HOME}/bin/mvn compile'
+							sh '${MAVEN_HOME}/bin/mvn test'
+						}	
+					}
+					}
+				stage (" Package")
+					{
+						steps{
+							sh '${MAVEN_HOME}/bin/mvn package'
 						}	
 					}
 					}
