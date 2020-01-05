@@ -12,6 +12,14 @@ pipeline{
 								sh '${MAVEN_HOME}/bin/mvn -X clean'
 								sh '${MAVEN_HOME}/bin/mvn -X compile'
 							}
+						post
+					{
+						always
+							{
+								archive "target/**/*"
+								junit 'target/surefire-reports/*.xml'
+							}
+					}
 						}
 				stage (" Test")
 					{
@@ -45,27 +53,4 @@ pipeline{
 					//	}	
 					//}
 					}
-			post
-					{
-						always
-							{
-								archive "target/**/*"
-								junit 'target/surefire-reports/*.xml'
-							}
-					}
-			post
-						{
-							success
-									{
-									mail(to:"ppathakg007@gmail.com",subject:"success:${currentBuild.fullDisplayName}",body: "Yay,We Passwd.")
-									}
-							failure
-									{
-									mail(to:"ppathakg007@gmail.com",subject:"success:${currentBuild.fullDisplayName}",body: "Huh,We failed.")
-									}
-							unstable
-									{
-									mail(to:"ppathakg007@gmail.com",subject:"success:${currentBuild.fullDisplayName}",uff: "Yay,We are Unstable.")
-									}
-						}
 }
