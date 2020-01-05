@@ -57,15 +57,15 @@ pipeline{
 						{
 							success
 									{
-									mail(to:ppathakg007@gmail.com",subject:"success:${currentBuild.fullDisplayName}",body: "Yay,We Passwd.")
+									mail(to:"ppathakg007@gmail.com",subject:"success:${currentBuild.fullDisplayName}",body: "Yay,We Passwd.")
 									}
 							failure
 									{
-									mail(to:ppathakg007@gmail.com",subject:"success:${currentBuild.fullDisplayName}",body: "Huh,We failed.")
+									mail(to:"ppathakg007@gmail.com",subject:"success:${currentBuild.fullDisplayName}",body: "Huh,We failed.")
 									}
 							unstable
 									{
-									mail(to:ppathakg007@gmail.com",subject:"success:${currentBuild.fullDisplayName}",uff: "Yay,We are Unstable.")
+									mail(to:"ppathakg007@gmail.com",subject:"success:${currentBuild.fullDisplayName}",uff: "Yay,We are Unstable.")
 									}
 						}
 }
