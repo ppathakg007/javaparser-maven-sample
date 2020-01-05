@@ -8,7 +8,7 @@ pipeline{
 				stage ("Compile")
 						{
 							steps{
-								input message: 'Please input to proceed', ok: 'GO Ahead'
+							//	input message: 'Please input to proceed', ok: 'GO Ahead'
 								sh '${MAVEN_HOME}/bin/mvn -X clean'
 								sh '${MAVEN_HOME}/bin/mvn -X compile'
 							}
@@ -38,13 +38,34 @@ pipeline{
 							sh '${MAVEN_HOME}/bin/mvn -X install'
 						}	
 					}
-				stage (" deploy")
+				//stage (" deploy")
+					//{
+						//steps{
+							//sh '${MAVEN_HOME}/bin/mvn -X deploy'
+					//	}	
+					//}
+					}
+			postBuild
 					{
-						steps{
-							sh '${MAVEN_HOME}/bin/mvn -X deploy'
-						}	
+						always
+							{
+								archive "target/**/*"
+								junit 'target/surefire-reports/*.xml'
+							}
 					}
-					}
+			notifications
+						{
+							success
+									{
+									mail(to:ppathakg007@gmail.com",subject:"success:${currentBuild.fullDisplayName}",body: "Yay,We Passwd.")
+									}
+							failure
+									{
+									mail(to:ppathakg007@gmail.com",subject:"success:${currentBuild.fullDisplayName}",body: "Huh,We failed.")
+									}
+							unstable
+									{
+									mail(to:ppathakg007@gmail.com",subject:"success:${currentBuild.fullDisplayName}",uff: "Yay,We are Unstable.")
+									}
+						}
 }
-			
-		
