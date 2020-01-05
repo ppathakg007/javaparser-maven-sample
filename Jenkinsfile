@@ -45,7 +45,7 @@ pipeline{
 					//	}	
 					//}
 					}
-			postBuild
+			post
 					{
 						always
 							{
@@ -53,7 +53,7 @@ pipeline{
 								junit 'target/surefire-reports/*.xml'
 							}
 					}
-			notifications
+			post
 						{
 							success
 									{
